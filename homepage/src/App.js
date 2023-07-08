@@ -1,9 +1,9 @@
 import React from "react";
-import Landingpage from "./pages/landingPage";
+import Navbar from "./pages/navbar";
 
 function App() {
   return (
-  <Landingpage/>
+  <Navbar/>
   );
 }
 
