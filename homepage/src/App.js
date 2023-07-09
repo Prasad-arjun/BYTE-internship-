@@ -1,9 +1,13 @@
 import React from "react";
-import Navbar from "./pages/navbar";
+import TopPannel from "./pages/TopPannel";
+import LandingPage from "./pages/landingPage";
 
 function App() {
   return (
-  <Navbar/>
+    <>
+      <TopPannel />
+      <LandingPage />
+    </>
   );
 }
 
