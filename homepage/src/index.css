@@ -17,8 +17,7 @@
 
 .searchBarNav::placeholder {
   position: relative;
-
-  color: black;
+  color: gray;
 }
 
 .buttonDepth:hover {

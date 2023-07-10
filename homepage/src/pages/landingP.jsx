@@ -83,8 +83,8 @@ const navbarList = [
 
 const LandingPage = () => {
   return (
-    <main className="h-[90vh] w-[100vw]  flex justify-center bg-green-00 items-center overflow-y-scroll ">
-      <div className="h-[100%] w-[90%] bg-green-0  flex ">
+    <main className="h-[90vh] w-[100vw]  flex justify-center items-center ">
+      <div className="h-[100%] w-[90%] bg-green-00  flex ">
         <NavbarContainer>
           <div className="h-[80%] w-[100%] flex flex-col justify-evenly ">
             <a href="" className=" flex items-center relative left-5">
@@ -115,9 +115,9 @@ const LandingPage = () => {
           </div>
         </NavbarContainer>
 
-        <FeedContainer className="  w-[45%] flex flex-col items-center bg-gray-00 relative left-8 ">
+        <FeedContainer className="h-[100%]  w-[45%] flex flex-col bg-gray-00 relative left-8  border-2 border-black">
           {/* start a post start  */}
-          <div className="bg-gray-50 border-2 border-gray-200 h-[30%] w-[95%] rounded-xl relative top-14 ">
+          <div className="bg-gray-50 h-[30%] w-[100%] rounded-xl">
             <div className="flex m-3 relative left-[3rem]">
               <img
                 src="https://placekitten.com/40/40"
@@ -126,7 +126,7 @@ const LandingPage = () => {
               />
               <input
                 type="text"
-                className="searchBarNav h-[6vh] w-[76%] relative left-2 border-2  border-gray-300 bg-[#f4f4f5] rounded-3xl outline-none pl-4"
+                className="searchBarNav h-[6vh] w-[76%] relative left-2 border-2  border-gray-400 bg-[#f4f4f5] rounded-3xl outline-none pl-4"
                 placeholder="Start a post"
               ></input>
             </div>
@@ -166,7 +166,7 @@ const LandingPage = () => {
             </div>
           </div>
           {/* start a post end  */}
-          <div className="h-[] w-[95%] relative top-[6rem]">
+          <div className="h-[] w-[100%]">
             <div className="flex flex-col space-y-4 border-2 border-gray-100 rounded-xl">
               <div className="bg-white rounded-lg shadow-lg p-4 ">
                 <div className="flex items-center space-x-4">
@@ -190,7 +190,6 @@ const LandingPage = () => {
                   alt="Feed Image"
                   className="mt-4 rounded-lg w-[100%] h-[60%]"
                 />
-                <div className="h-[0.1vh] w-[100%] bg-black mt-4"></div>
                 <div className="flex justify-around items-center space-x-4 mt-4">
                   <img src={likeIcon} className="h-[1.8rem]" alt="likeButton" />
                   <img
