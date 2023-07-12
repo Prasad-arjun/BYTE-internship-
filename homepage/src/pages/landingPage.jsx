@@ -19,6 +19,9 @@ import photoIcon from "../assests/photo.svg";
 import videoIcon from "../assests/video.svg";
 import calendarIcon from "../assests/event.svg";
 import writeIcon from "../assests/article.svg";
+import shareIcon from "../assests/share.svg";
+import { useState } from "react";
+import TopPannel from "./TopPannel";
 
 const newsData = [
   {
@@ -82,12 +85,18 @@ const navbarList = [
 ];
 
 const LandingPage = () => {
+  const [showComment, setShowComment] = useState(false);
+
+  const handleCommentVisibilty = () => {
+    setShowComment(!showComment);
+  };
+
   return (
-    <main className="h-[90vh] w-[100vw]  flex justify-center bg-green-00 items-center overflow-y-scroll ">
-      <div className="h-[100%] w-[90%] bg-green-0  flex ">
-        <NavbarContainer>
-          <div className="h-[80%] w-[100%] flex flex-col justify-evenly ">
-            <a href="" className=" flex items-center relative left-5">
+    <main className="h-[100vh] w-[100vw] flex justify-center bg-green-00 items-center overflow-y-scroll">
+      <div className="h-auto w-[90%]  bg-green-00 flex ">
+        <div className="h-[90vh] w-[20%] relative top-16 bg-gray-50  border-2 border-gray-200 rounded-xl ">
+          <div className="h-[80%] w-[100%] flex flex-col justify-evenly">
+            <a href="" className="flex items-center relative left-5">
               <div className="h-[4rem] w-[4rem] rounded-2xl mr-4 bg-gray-200"></div>
               <div className="flex flex-col mt-2">
                 <span className="h-[1.5rem] w-[3rem] bg-[#0CAFFF] rounded-sm text-center relative top-1 text-white">
@@ -113,12 +122,12 @@ const LandingPage = () => {
               </a>
             ))}
           </div>
-        </NavbarContainer>
+        </div>
 
-        <FeedContainer className="  w-[45%] flex flex-col items-center bg-gray-00 relative left-8 ">
+        <div className=" h-[100vh]  w-[50%] flex flex-col items-center bg-gray-00 relative left-8">
           {/* start a post start  */}
-          <div className="bg-gray-50 border-2 border-gray-200 h-[30%] w-[95%] rounded-xl relative top-14 ">
-            <div className="flex m-3 relative left-[3rem]">
+          <div className=" flex  flex-col  justify-center bg-gray-50 border-2 border-gray-200 h-[30%] w-[95%] rounded-xl relative top-16 z-[1]">
+            <div className="flex  m-3 relative  left-[2rem] ">
               <img
                 src="https://placekitten.com/40/40"
                 className="h-[2.8rem] rounded-full"
@@ -126,11 +135,11 @@ const LandingPage = () => {
               />
               <input
                 type="text"
-                className="searchBarNav h-[6vh] w-[76%] relative left-2 border-2  border-gray-300 bg-[#f4f4f5] rounded-3xl outline-none pl-4"
+                className="searchBarNav h-[6vh] w-[78%] relative left-2 border-2 border-gray-300 bg-[#f4f4f5] rounded-3xl outline-none pl-4"
                 placeholder="Start a post"
               ></input>
             </div>
-            <div className="flex justify-evenly items-start">
+            <div className="flex justify-evenly items-start relative top-2">
               <div className="center">
                 <img
                   src={photoIcon}
@@ -142,7 +151,7 @@ const LandingPage = () => {
               <div className="center">
                 <img
                   src={videoIcon}
-                  className="h-[1.8rem] m-1 "
+                  className="h-[1.8rem] m-1"
                   alt="profileIcon"
                 />
                 <span>Video</span>
@@ -150,7 +159,7 @@ const LandingPage = () => {
               <div className="center">
                 <img
                   src={calendarIcon}
-                  className="h-[1.5rem] m-1 "
+                  className="h-[1.5rem] m-1"
                   alt="profileIcon"
                 />
                 <span>Event</span>
@@ -158,7 +167,7 @@ const LandingPage = () => {
               <div className="center">
                 <img
                   src={writeIcon}
-                  className="h-[1.5rem] m-1 "
+                  className="h-[1.5rem] m-1"
                   alt="profileIcon"
                 />
                 <span>Write article</span>
@@ -166,9 +175,9 @@ const LandingPage = () => {
             </div>
           </div>
           {/* start a post end  */}
-          <div className="h-[] w-[95%] relative top-[6rem]">
+          <div className="w-[95%] relative top-[6rem] bg-slate-00 z-[0]">
             <div className="flex flex-col space-y-4 border-2 border-gray-100 rounded-xl">
-              <div className="bg-white rounded-lg shadow-lg p-4 ">
+              <div className="bg-white rounded-lg shadow-lg p-4">
                 <div className="flex items-center space-x-4">
                   <img
                     src="https://placekitten.com/40/40"
@@ -181,7 +190,7 @@ const LandingPage = () => {
                   </div>
                 </div>
                 <p className="mt-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  Lorem ipsum dolorsit amet, consectetur adipiscing elit. Sed
                   mattis convallis ante, ac facilisis ipsum commodo a. Nunc eu
                   efficitur risus.
                 </p>
@@ -191,28 +200,68 @@ const LandingPage = () => {
                   className="mt-4 rounded-lg w-[100%] h-[60%]"
                 />
                 <div className="h-[0.1vh] w-[100%] bg-black mt-4"></div>
-                <div className="flex justify-around items-center space-x-4 mt-4">
-                  <img src={likeIcon} className="h-[1.8rem]" alt="likeButton" />
-                  <img
-                    src={commentIcon}
-                    className="h-[1.8rem]"
-                    alt="commentButton"
-                  />
-                  <img src={saveIcon} className="h-[1.8rem]" alt="saveButton" />
+                <div className="flex  justify-around items-center space-x-4 mt-4">
+                  <div className="flex">
+                    <img
+                      src={likeIcon}
+                      className="h-[1.8rem] mr-2"
+                      alt="likeButton"
+                    />
+                    <span>Like</span>
+                  </div>
+                  <div className="flex" onClick={handleCommentVisibilty}>
+                    <img
+                      src={commentIcon}
+                      className="h-[1.5rem] mr-2 "
+                      alt="commentButton"
+                    />
+                    <button>Comment</button>
+                  </div>
+                  <div className="flex">
+                    <img
+                      src={saveIcon}
+                      className="h-[1.6rem] mr-2"
+                      alt="saveButton"
+                    />
+                    <span>Save</span>
+                  </div>
+                  <div className="flex">
+                    <img
+                      src={shareIcon}
+                      className="h-[1.4rem] mr-2"
+                      alt="shareButton"
+                    />
+                    <span>share</span>
+                  </div>
                 </div>
+
+                {showComment && (
+                  <div className="flex m-3 relative h-auto w-[90%] z-[10] top-4 left-[rem]">
+                    <img
+                      src="https://placekitten.com/40/40"
+                      className="h-[2.4rem] rounded-full"
+                      alt="profileIcon"
+                    />
+                    <input
+                      type="text"
+                      className="searchBarNav h-[5vh] w-[90%] relative left-2 border-2 border-gray-300 bg-[#f4f4f5] rounded-3xl outline-none pl-4"
+                      placeholder="Comment"
+                    ></input>
+                  </div>
+                )}
               </div>
             </div>
           </div>
-        </FeedContainer>
-        <NewsContainer className="h-[100%] w-[35%] bg-green-00 flex justify-center items-start">
-          <div className="h-[75%] w-[80%] bg-gray-50 border-2 border-gray-200 rounded-md relative top-16 left-6 flex justify-center items-center  ">
-            <div className="h-[90%] w-[95%] bg-gray-00 ">
+        </div>
+        <NewsContainer className="h-[100%] w-[30%] bg-green-00 flex justify-center items-start">
+          <div className=" w-[90%] bg-gray-50 border-2 border-gray-200 rounded-md relative top-16 left-6 flex justify-center items-center p-4">
+            <div className="h-[100%] w-[95%] bg-gray-00 p-1">
               <h1 className="font-semibold underline relative bottom-2 text-lg">
                 Stay Informed, Stay Ahead
               </h1>
-              <div className="relative top-4">
+              <div className="relative top-4 ">
                 {newsData.map((newsItem, index) => (
-                  <div className="flex  justify-center mb-3 " key={index}>
+                  <div className="flex justify-center mb-3" key={index}>
                     <img
                       src={sampleNewsPhoto}
                       className="h-[10vh] w-[5vw]"

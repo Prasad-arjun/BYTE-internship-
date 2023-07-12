@@ -6,7 +6,7 @@ import notificationIcon from "../assests/notification.svg";
 
 const TopPannel = () => {
   return (
-    <NavbarComponent bg="#0CAFFF">
+    <NavbarComponent bg="#0CAFFF" className="sticky top-0 z-[10]">
       <div className="  h-[100%] w-[94%] flex justify-between items-center">
         <div className="flex  items-center justify-evenly h-[100%] w-[75%]">
           <img src="" alt="logo" />
